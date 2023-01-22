@@ -23,6 +23,18 @@ public class App {
                 builder.append("<th>").append(headers[i]).append("</th>");
             }
             builder.append("</tr>").append("\n");
+            while (fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+                line = line.replaceAll("\"", "");
+                String[] data = line.split(",");
+                builder.append("<tr>");
+                if (data.length == headers.length) {
+                    for (int i = 0; i < data.length; i++) {
+                        builder.append("<td>").append(data[i]).append("</td>");
+                    }
+                    builder.append("</tr>").append("\n");
+                }
+            }
             builder.append("</table>");
             fileWriter.write(builder.toString());
             fileWriter.close();
