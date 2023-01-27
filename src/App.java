@@ -17,10 +17,10 @@ public class App {
             String[] headers = headerLine.split(",");// split the line into an array of strings
             FileWriter fileWriter = new FileWriter("res/grades.html");
             StringBuilder builder = new StringBuilder();
-            builder.append("<table>").append("\n");
-            builder.append("<tr>");
+            builder.append("<table style='border-collapse: collapse;'>").append("\n");
+            builder.append("<tr >");
             for (int i = 0; i < headers.length; i++) {
-                builder.append("<th>").append(headers[i]).append("</th>");
+                builder.append("<th style ='border:1px solid black;'>").append(headers[i]).append("</th>");
             }
             builder.append("</tr>").append("\n");
             while (fileScanner.hasNextLine()) {
@@ -30,7 +30,7 @@ public class App {
                 builder.append("<tr>");
                 if (data.length == headers.length) {
                     for (int i = 0; i < data.length; i++) {
-                        builder.append("<td>").append(data[i]).append("</td>");
+                        builder.append("<td style ='border:1px solid black;'>").append(data[i]).append("</td>");
                     }
                     builder.append("</tr>").append("\n");
                 }
